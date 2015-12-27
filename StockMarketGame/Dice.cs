@@ -8,9 +8,11 @@ namespace StockMarketGame
 {
     public static class Dice
     {
+        static Random randomGenerator = new Random();
+
         public static int Roll()
         {
-            return 3;
+            return randomGenerator.Next(1, 7);
         }
     }
 }

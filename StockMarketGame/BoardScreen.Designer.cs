@@ -34,9 +34,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1077, 624);
+            this.ClientSize = new System.Drawing.Size(1249, 722);
             this.Name = "BoardScreen";
             this.Text = "Stock Market";
+            this.Load += new System.EventHandler(this.BoardScreen_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.BoardScreen_Paint);
             this.ResumeLayout(false);
 
         }

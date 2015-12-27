@@ -17,6 +17,7 @@ namespace StockMarketGame
 
         public Market()
         {
+            this.Index = 25;
         }
 
         public void Move(int marketMovement)

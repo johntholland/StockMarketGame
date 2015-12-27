@@ -71,5 +71,10 @@ namespace StockMarketGame
                 throw new NotEnoughCashException();
             }
         }
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 }

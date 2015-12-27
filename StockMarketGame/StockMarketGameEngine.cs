@@ -29,7 +29,6 @@ namespace StockMarketGame
             this.Board = board;
             this.ActivePlayer = players[0];
             this.Market = new Market();
-
         }
 
         public void SellStock_PreRoll(Stock stock, uint quantity)

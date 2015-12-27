@@ -9,10 +9,14 @@ namespace StockMarketGame
     public class Stock
     {
         public string Name { get; set; }
-        public uint Price { get; set; }
         public uint Dividend { get; set; }
         public uint BottomPrice { get; set; }
         public uint TopPrice { get; set; }
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
 
         public static Stock Woolsworth
         {

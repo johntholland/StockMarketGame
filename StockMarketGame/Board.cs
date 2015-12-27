@@ -162,73 +162,100 @@ namespace StockMarketGame
             //main squares
             ISpace activeSpace = StartSpace1;
             activeSpace.Right = new StockSpace(Stock.Maytag, +1, Direction.Left);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = new StockSpace(Stock.GeneralMills, -2, Direction.Left);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
 
             var alcoaEntrance = new ShareHolderMeetingEntrance(Stock.Alcoa, +3, Direction.Right);
             alcoaEntrance.ShareHolderSpace = alcoaCurrent as ShareHolderSpace;
             activeSpace.Right = alcoaEntrance;
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
 
             activeSpace.Right = new StockSpace(Stock.AmericanMotors, -4, Direction.Right);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = new SellAllSpace(Stock.Woolsworth, +5, Direction.Right);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = new CornerSpace(+20, Direction.Right);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = new SellAllSpace(Stock.Maytag, -5, Direction.Left);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = new StockSpace(Stock.GeneralMills, +4, Direction.Left);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
 
             var jiCaseEntrance = new ShareHolderMeetingEntrance(Stock.JICase, -3, Direction.Left);
             jiCaseEntrance.ShareHolderSpace = jiCaseCurrent as ShareHolderSpace;
             activeSpace.Right = jiCaseEntrance;
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
 
             activeSpace.Right = new StockSpace(Stock.AmericanMotors, +2, Direction.Left);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = new StockSpace(Stock.Alcoa, -1, Direction.Left);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = StartSpace2;
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = new StockSpace(Stock.Woolsworth, -1, Direction.Left);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = new StockSpace(Stock.WesternPublishing, +2, Direction.Left);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
 
 
             var maytagEntrance = new ShareHolderMeetingEntrance(Stock.Maytag, -3, Direction.Right);
             maytagEntrance.ShareHolderSpace = maytagCurrent as ShareHolderSpace;
             activeSpace.Right = maytagEntrance;
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
 
             activeSpace.Right = new StockSpace(Stock.InternationalShoe, +4, Direction.Right);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = new SellAllSpace(Stock.JICase, -5, Direction.Right);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
-            activeSpace = new CornerSpace(-20, Direction.Right);
+            activeSpace.Right = new CornerSpace(-20, Direction.Right);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = new SellAllSpace(Stock.WesternPublishing, +5, Direction.Left);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = new StockSpace(Stock.Alcoa, -4, Direction.Left);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
 
 
             var americanMotorsEntrance = new ShareHolderMeetingEntrance(Stock.AmericanMotors, +3, Direction.Left);
             americanMotorsEntrance.ShareHolderSpace = americanMotorsCurrent as ShareHolderSpace;
             activeSpace.Right = americanMotorsEntrance;
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
 
             activeSpace.Right = new StockSpace(Stock.Maytag, -2, Direction.Left);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = new StockSpace(Stock.GeneralMills, +1, Direction.Left);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = StartSpace3;
+            activeSpace.Right.Left = activeSpace;
+            activeSpace = activeSpace.Right;
             activeSpace.Right = new StockSpace(Stock.InternationalShoe, +1, Direction.Left);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = new StockSpace(Stock.JICase, -2, Direction.Left);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
 
 
@@ -236,48 +263,71 @@ namespace StockMarketGame
             westernPubEntrance.ShareHolderSpace = westernPubCurrent as ShareHolderSpace;
             activeSpace.Right = westernPubEntrance;
 
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = new StockSpace(Stock.Woolsworth, -4, Direction.Right);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = new SellAllSpace(Stock.AmericanMotors, +5, Direction.Right);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = new CornerSpace(+20, Direction.Right);
+
+            activeSpace.Right.Left = activeSpace;
+            activeSpace = activeSpace.Right;
+
+
             activeSpace.Right = new SellAllSpace(Stock.InternationalShoe, -5, Direction.Left);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = new StockSpace(Stock.Maytag, +4, Direction.Left);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
 
 
             var genMillEntrance = new ShareHolderMeetingEntrance(Stock.GeneralMills, -3, Direction.Left);
             genMillEntrance.ShareHolderSpace = generalMillsCurrent as ShareHolderSpace;
             activeSpace.Right = genMillEntrance;
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
 
 
             activeSpace.Right = new StockSpace(Stock.Alcoa, +2, Direction.Left);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = new StockSpace(Stock.AmericanMotors, -1, Direction.Left);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = StartSpace4;
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = new StockSpace(Stock.WesternPublishing, -1, Direction.Left);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = new StockSpace(Stock.Woolsworth, +2, Direction.Left);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
 
             var intShoeEntrance = new ShareHolderMeetingEntrance(Stock.InternationalShoe, -3, Direction.Right);
             intShoeEntrance.ShareHolderSpace = internationalShoeCurrent as ShareHolderSpace;
             activeSpace.Right = intShoeEntrance;
-
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
+
             activeSpace.Right = new StockSpace(Stock.JICase, +4, Direction.Right);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = new SellAllSpace(Stock.GeneralMills, -5, Direction.Right);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
-            activeSpace = new CornerSpace(-20, Direction.Right);
+            activeSpace.Right = new CornerSpace(-20, Direction.Right);
+            activeSpace.Right.Left = activeSpace;
+            activeSpace = activeSpace.Right;
             activeSpace.Right = new SellAllSpace(Stock.Alcoa, +5, Direction.Left);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = new StockSpace(Stock.WesternPublishing, -4, Direction.Left);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
 
 
@@ -286,11 +336,15 @@ namespace StockMarketGame
             woolsworthEntrance.ShareHolderSpace = woolsWorthCurrent as ShareHolderSpace;
             activeSpace.Right = woolsworthEntrance;
 
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = new StockSpace(Stock.InternationalShoe, -2, Direction.Left);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
             activeSpace.Right = new StockSpace(Stock.JICase, +1, Direction.Left);
+            activeSpace.Right.Left = activeSpace;
             activeSpace = activeSpace.Right;
+            activeSpace.Right = StartSpace1;
             StartSpace1.Left = activeSpace;
 
 
