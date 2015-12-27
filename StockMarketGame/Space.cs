@@ -22,22 +22,30 @@ namespace StockMarketGame
         ISpace Right { get; set; }
     }
 
+    public class ShareHolderMeetingEntrance: StockSpace
+    {
+        public ShareHolderSpace ShareHolderSpace { get; set; }
+
+        public ShareHolderMeetingEntrance(Stock stock, int marketMovement, Direction direction)
+            :base(stock, marketMovement, direction)
+        {
+
+        }
+    }
+
     public class StockSpace : ISpace
     {
         public ISpace Left { get; set; }
         public ISpace Right { get; set; }
 
         public Direction Direction { get; set; }
-        public bool PurchaseLimit { get; set; }
         public Stock Stock { get; set; }
         public int MarketMovement { get; set; }
 
-
-        public StockSpace(Stock stock, int marketMovement, Direction direction, bool purchaseLimit = false)
+        public StockSpace(Stock stock, int marketMovement, Direction direction)
         {
             this.Direction = direction;
             this.MarketMovement = marketMovement;
-            this.PurchaseLimit = purchaseLimit;
             this.Stock = stock;
         }
 

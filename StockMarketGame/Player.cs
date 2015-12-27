@@ -9,7 +9,7 @@ namespace StockMarketGame
     public class Player
     {
         public string Name { get; set; }
-        public Dictionary<Stock, int> ShareQuantities { get; set; }
+        public Dictionary<string, uint> ShareQuantities { get; set; }
         public uint Cash { get; set; }
 
         public ISpace CurrentSpace { get; set; }
@@ -19,17 +19,57 @@ namespace StockMarketGame
         {
             this.Name = name;
             this.Cash = Cash;
-            this.ShareQuantities = new Dictionary<Stock, int>();
+            this.ShareQuantities = new Dictionary<string, uint>();
+            this.AddStock(Stock.Alcoa, 0);
+            this.AddStock(Stock.AmericanMotors, 0);
+            this.AddStock(Stock.GeneralMills, 0);
+            this.AddStock(Stock.InternationalShoe, 0);
+            this.AddStock(Stock.JICase, 0);
+            this.AddStock(Stock.Maytag, 0);
+            this.AddStock(Stock.WesternPublishing, 0);
+            this.AddStock(Stock.Woolsworth, 0);
         }
 
-        public void Sell (Stock stock, uint quantity, int stockPrice)
+        public void AddStock(Stock stock, uint quantity)
         {
-            
+            if (this.ShareQuantities.Keys.Contains(stock.Name))
+            {
+                this.ShareQuantities[stock.Name] += quantity;
+            }
+            else
+            {
+                this.ShareQuantities.Add(stock.Name, quantity);
+            }
         }
 
-        public void Buy(Stock stock, uint quantity, int stockPrice)
+        public void Sell (Stock stock, uint quantity, uint stockPrice)
         {
+            var shares = this.ShareQuantities[stock.Name];
 
+            if (shares >= quantity)
+            {
+                this.Cash += quantity * stockPrice;
+                this.ShareQuantities[stock.Name] = shares - quantity;
+            }
+            else
+            {
+                throw new NotEnoughStockException();
+            }
+        }
+
+        public void Buy(Stock stock, uint quantity, uint stockPrice)
+        {
+            var shares = this.ShareQuantities[stock.Name];
+
+            if (this.Cash >= quantity * stockPrice)
+            {
+                this.Cash -= quantity * stockPrice;
+                this.ShareQuantities[stock.Name] = shares + quantity;
+            }
+            else
+            {
+                throw new NotEnoughCashException();
+            }
         }
     }
 }

@@ -10,9 +10,9 @@ namespace StockMarketGame
     {
         public int Index { get; set; }
 
-        public int Price(Stock stock)
+        public uint Price(Stock stock)
         {
-            return (stock.TopPrice - stock.BottomPrice) / this.Index;
+            return (stock.TopPrice - stock.BottomPrice) / (uint) this.Index;
         }
 
         public Market()
