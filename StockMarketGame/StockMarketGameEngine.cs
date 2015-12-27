@@ -38,7 +38,7 @@ namespace StockMarketGame
 
         public void SellStock_PostRoll(Stock stock, uint quantity)
         {
-            ActivePlayer.Sell(stock, quantity, stock.BottomPrice);
+            ActivePlayer.Sell(stock, quantity, stock.Prices[0]);
         }
 
 

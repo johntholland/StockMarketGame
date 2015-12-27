@@ -12,17 +12,32 @@ namespace StockMarketGame
 
         public uint Price(Stock stock)
         {
-            return (stock.TopPrice - stock.BottomPrice) / (uint) this.Index;
+            return stock.Prices[this.Index];
         }
 
         public Market()
         {
-            this.Index = 25;
+            this.Index = 25;//0 index
         }
 
         public void Move(int marketMovement)
         {
+            if (this.Index + marketMovement > 50)
+            {
+                marketMovement = (50 - (this.Index + marketMovement));
+            }
+
+            if (this.Index + marketMovement < 0)
+            {
+                marketMovement = (this.Index - marketMovement);
+            }
+
             this.Index += marketMovement;
+        }
+
+        public override string ToString()
+        {
+            return this.Index.ToString();
         }
     }
 }
