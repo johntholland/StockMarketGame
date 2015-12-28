@@ -11,6 +11,7 @@ namespace StockMarketGame
         public string Name { get; set; }
         public Dictionary<string, uint> ShareQuantities { get; set; }
         public uint Cash { get; set; }
+        public string Color { get; set; }
 
         public ISpace CurrentSpace { get; set; }
         public Job CurrentJob { get; set; }

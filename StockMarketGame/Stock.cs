@@ -6,6 +6,16 @@ using System.Threading.Tasks;
 
 namespace StockMarketGame
 {
+    public class Woolsworth: Stock
+    {
+        public Woolsworth()
+        {
+            this.Name = "Woolsworth";
+            this.Dividend = 4;
+            this.Prices = new uint[51] { 30, 34, 38, 42, 46, 50, 54, 58, 62, 66, 70, 74, 78, 82, 86, 90, 94, 98, 102, 106, 110, 114, 118, 122, 126, 130, 134, 138, 142, 146, 150, 154, 158, 162, 166, 170, 174, 178, 182, 186, 190, 194, 198, 202, 206, 210, 214, 218, 222, 226, 230 };
+        }
+    }
+
     public class Stock
     {
 

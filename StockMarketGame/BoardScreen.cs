@@ -33,6 +33,7 @@ namespace StockMarketGame
             var coordinates = new Point(0, 0);
             var rectangleSize = new Size(60, 60);
             var heightOffset = rectangleSize.Height;
+            var shareHolderHeightOffset = rectangleSize.Height / 2;
             var widthOffset = rectangleSize.Width;
             var squareColor = Color.White;
 
@@ -129,24 +130,99 @@ namespace StockMarketGame
                 activeSpace = activeSpace.Left;
             }
 
-            //input shareholder meetings
-
-            rectangleSize = new Size(rectangleSize.Width, rectangleSize.Height / 2);
+            #region Alcoa/Woolsworth ShareHolder Meeting
+            rectangleSize = new Size(rectangleSize.Width, shareHolderHeightOffset);
             coordinates = new Point(widthOffset * 3, heightOffset *1);
-            heightOffset = heightOffset / 2;
-
             ShareHolderMeetingEntrance alcoaEntrance = GameState.Board.StartSpace1.Right.Right.Right as ShareHolderMeetingEntrance;
-            alcoaEntrance.ShareHolderSpace = GameState.Board.AlcoaFirstShareHolderSquare;
             ShareHolderSpace currentShareHolderSpace = alcoaEntrance.ShareHolderSpace;
 
-            ShareHolderSpaces.Add(new ShareHolderGui(alcoaEntrance.ShareHolderSpace,Color.Black, SpaceRegion.TopRow, new Rectangle(coordinates, rectangleSize)));
-            coordinates.Y += heightOffset;
-
-            currentShareHolderSpace = currentShareHolderSpace.Right as ShareHolderSpace;
             ShareHolderSpaces.Add(new ShareHolderGui(currentShareHolderSpace, Color.Black, SpaceRegion.TopRow, new Rectangle(coordinates, rectangleSize)));
+            currentShareHolderSpace = currentShareHolderSpace.Right as ShareHolderSpace;
+            coordinates.Y += shareHolderHeightOffset;
 
+            for (int i = 0; i < 7; i++)
+            {
+                ShareHolderSpaces.Add(new ShareHolderGui(currentShareHolderSpace, Color.Black, SpaceRegion.TopRow, new Rectangle(coordinates, rectangleSize)));
+                currentShareHolderSpace = currentShareHolderSpace.Right as ShareHolderSpace;
+                coordinates.X += widthOffset;
+            }
+            coordinates.X -= widthOffset;
+            coordinates.Y -= shareHolderHeightOffset;
+            ShareHolderSpaces.Add(new ShareHolderGui(currentShareHolderSpace, Color.Black, SpaceRegion.TopRow, new Rectangle(coordinates, rectangleSize)));
+            currentShareHolderSpace = currentShareHolderSpace.Right as ShareHolderSpace;
+            #endregion
 
+            #region Int.Shoe/GeneralMills ShareHolder Meeting
+            rectangleSize = new Size(shareHolderHeightOffset, rectangleSize.Width);
+            coordinates.Y += heightOffset * 2;
+            coordinates.X += shareHolderHeightOffset * 5;
 
+            ShareHolderMeetingEntrance intShoeEntrance = GameState.Board.StartSpace2.Right.Right.Right as ShareHolderMeetingEntrance;
+            currentShareHolderSpace = intShoeEntrance.ShareHolderSpace;
+
+            ShareHolderSpaces.Add(new ShareHolderGui(currentShareHolderSpace, Color.Black, SpaceRegion.TopRow, new Rectangle(coordinates, rectangleSize)));
+            currentShareHolderSpace = currentShareHolderSpace.Right as ShareHolderSpace;
+            coordinates.X -= shareHolderHeightOffset;
+
+            for (int i = 0; i < 7; i++)
+            {
+                ShareHolderSpaces.Add(new ShareHolderGui(currentShareHolderSpace, Color.Black, SpaceRegion.TopRow, new Rectangle(coordinates, rectangleSize)));
+                currentShareHolderSpace = currentShareHolderSpace.Right as ShareHolderSpace;
+                coordinates.Y += widthOffset;
+            }
+            coordinates.Y -= heightOffset;
+            coordinates.X += shareHolderHeightOffset;
+            ShareHolderSpaces.Add(new ShareHolderGui(currentShareHolderSpace, Color.Black, SpaceRegion.TopRow, new Rectangle(coordinates, rectangleSize)));
+            currentShareHolderSpace = currentShareHolderSpace.Right as ShareHolderSpace;
+            #endregion
+
+            #region J.I.Case/Maytag ShareHolder Meeting
+            rectangleSize = new Size(shareHolderHeightOffset, heightOffset);
+            coordinates.Y -= heightOffset * 6;
+            coordinates.X -= shareHolderHeightOffset * 21;
+
+            ShareHolderMeetingEntrance jiCaseEntrance = GameState.Board.StartSpace4.Right.Right.Right as ShareHolderMeetingEntrance;
+            currentShareHolderSpace = jiCaseEntrance.ShareHolderSpace;
+
+            ShareHolderSpaces.Add(new ShareHolderGui(currentShareHolderSpace, Color.Black, SpaceRegion.TopRow, new Rectangle(coordinates, rectangleSize)));
+            currentShareHolderSpace = currentShareHolderSpace.Right as ShareHolderSpace;
+            coordinates.X += shareHolderHeightOffset;
+
+            for (int i = 0; i < 7; i++)
+            {
+                ShareHolderSpaces.Add(new ShareHolderGui(currentShareHolderSpace, Color.Black, SpaceRegion.TopRow, new Rectangle(coordinates, rectangleSize)));
+                currentShareHolderSpace = currentShareHolderSpace.Right as ShareHolderSpace;
+                coordinates.Y += widthOffset;
+            }
+            coordinates.Y -= heightOffset;
+            coordinates.X -= shareHolderHeightOffset;
+            ShareHolderSpaces.Add(new ShareHolderGui(currentShareHolderSpace, Color.Black, SpaceRegion.TopRow, new Rectangle(coordinates, rectangleSize)));
+            currentShareHolderSpace = currentShareHolderSpace.Right as ShareHolderSpace;
+            #endregion
+
+            #region WesternPub/AmericanMotors ShareHolder Meeting
+            rectangleSize = new Size(widthOffset, shareHolderHeightOffset);
+            
+            coordinates.X += widthOffset * 2;
+            coordinates.Y += (heightOffset * 2) + shareHolderHeightOffset;
+            ShareHolderMeetingEntrance westernPubEntrance = GameState.Board.StartSpace3.Right.Right.Right as ShareHolderMeetingEntrance;
+            currentShareHolderSpace = alcoaEntrance.ShareHolderSpace;
+
+            ShareHolderSpaces.Add(new ShareHolderGui(currentShareHolderSpace, Color.Black, SpaceRegion.TopRow, new Rectangle(coordinates, rectangleSize)));
+            currentShareHolderSpace = currentShareHolderSpace.Right as ShareHolderSpace;
+            coordinates.Y -= shareHolderHeightOffset;
+
+            for (int i = 0; i < 7; i++)
+            {
+                ShareHolderSpaces.Add(new ShareHolderGui(currentShareHolderSpace, Color.Black, SpaceRegion.TopRow, new Rectangle(coordinates, rectangleSize)));
+                currentShareHolderSpace = currentShareHolderSpace.Right as ShareHolderSpace;
+                coordinates.X += widthOffset;
+            }
+            coordinates.X -= widthOffset;
+            coordinates.Y += shareHolderHeightOffset;
+            ShareHolderSpaces.Add(new ShareHolderGui(currentShareHolderSpace, Color.Black, SpaceRegion.TopRow, new Rectangle(coordinates, rectangleSize)));
+            currentShareHolderSpace = currentShareHolderSpace.Right as ShareHolderSpace;
+            #endregion
 
         }
 
