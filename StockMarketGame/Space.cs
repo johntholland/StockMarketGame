@@ -22,6 +22,11 @@ namespace StockMarketGame
         ISpace Right { get; set; }
     }
 
+    public interface IStockSpace
+    {
+        Stock Stock{ get;}
+    }
+
     public class ShareHolderMeetingEntrance: StockSpace
     {
         public ShareHolderSpace ShareHolderSpace { get; set; }
@@ -33,7 +38,7 @@ namespace StockMarketGame
         }
     }
 
-    public class StockSpace : ISpace
+    public class StockSpace : ISpace, IStockSpace
     {
         public ISpace Left { get; set; }
         public ISpace Right { get; set; }
@@ -62,29 +67,20 @@ namespace StockMarketGame
         //}
     }
 
-    public class SellAllSpace :ISpace
+    public class SellAllSpace :ISpace, IStockSpace
     {
         public ISpace Left { get; set; }
         public ISpace Right { get; set; }
 
         public Direction Direction { get; set; }
         public Stock Stock { get; set; }
-        public int MarketDirection { get; set; }
-
-
-        public int MarketMovement
-        {
-            get
-            {
-                return MarketDirection;
-            }
-        }
+        public int MarketMovement { get; set; }
 
         public SellAllSpace(Stock stock, int marketMovement, Direction direction)
         {
             this.Stock = stock;
             this.Direction = direction;
-
+            this.MarketMovement = marketMovement;
         }
 
         //public override void LandedOn(Player player, Market market)
@@ -162,7 +158,7 @@ namespace StockMarketGame
         }
     }
 
-    public class ShareHolderSpace: ISpace
+    public class ShareHolderSpace: ISpace, IStockSpace
     {
         private ISpace _next { get; set; }
 
