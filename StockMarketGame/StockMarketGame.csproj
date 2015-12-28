@@ -91,7 +91,9 @@
     </Compile>
     <Compile Include="Dice.cs" />
     <Compile Include="Job.cs" />
+    <Compile Include="JobGui.cs" />
     <Compile Include="Market.cs" />
+    <Compile Include="MarketGui.cs" />
     <Compile Include="NotEnoughCashException.cs" />
     <Compile Include="NotEnoughStockException.cs" />
     <Compile Include="Player.cs" />

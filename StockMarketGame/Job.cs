@@ -7,6 +7,7 @@ namespace StockMarketGame
     {
         public List<int> payoutNumber = new List<int>();
         public abstract int Salary { get;}
+        public string Name { get; set; }
     }
 
 
@@ -24,6 +25,7 @@ namespace StockMarketGame
         {
             payoutNumber.Add(5);
             payoutNumber.Add(9);
+            this.Name = "PoliceMan";
         }
     }
 
@@ -41,6 +43,7 @@ namespace StockMarketGame
         {
             payoutNumber.Add(4);
             payoutNumber.Add(10);
+            this.Name = "Doctor";
         }
     }
 
@@ -58,6 +61,7 @@ namespace StockMarketGame
         {
             payoutNumber.Add(3);
             payoutNumber.Add(11);
+            this.Name = "DeepSeaDiver";
         }
     }
 
@@ -75,6 +79,7 @@ namespace StockMarketGame
         {
             payoutNumber.Add(2);
             payoutNumber.Add(12);
+            this.Name = "Prospector";
         }
     }
 }
